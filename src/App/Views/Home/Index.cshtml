@@ -1,8 +1,66 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .homepage{
+      color:#6f42c1 !important;
+      font-weight: 600;
+      text-align: justify;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    }
+</style>
+
+<div class="text-center m-4">
+    <div class="justify-content-center py-5">
+        <h1 class="display-4">Witaj w narzędziu PQC</h1>
+        <div class=" mt-5 homepage row">
+            <p class="homepage col-md-6" style="font-size:1.2em;">
+                Narzędzie to pozwala efektywnie monitorować kluczowe
+                wskaźniki kodu źródłowego. W oparciu o zaawansowaną analizę projektu udostępniany
+                jest przejrzysty raport pozwalający nadzorować trendy w jakości projektu. Platforma PQC oferuje zawansowaną analizę kodu z wykorzystaniem oprogramowania SonarQube, będącego jednym z najnowocześniejszych oraz najbardziej zawansowanych skanerów kodu źródłowego.
+            </p>
+            <p class="homepage col-md-6" style="font-size:1.2em;">
+                W odróżnieniu od innych systemów analitycznych narzędzie zostało stworzone z myślą o programistach oraz osobach zarządzających projektem tak, aby przeprowadzenie analizy oraz interpretacja wyników nie stanowiły ograniczenia w nadzorowaniu jakości projektu poprzez wymaganą specjalistyczną wiedzę.
+            </p>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row justify-content-between md-5 py-5">
+    <div class="col-md-4 ">
+        <img src="~/images/undraw_Upvote_re_qn2k.svg" class="img-fluid" alt="Add_repo">
+    </div>
+    <div class="col-md-6  align-self-center">
+        <h4 class="homepage">
+            Krok pierwszy stanowi wypełnienie formularza na stronie
+            <a href="/Analysis"><b>Analizy</b>.</a>
+        </h4>
+    </div>
+</div>
+<div class="row justify-content-between md-5 py-5">
+
+    <div class="col-md-6  align-self-center ">
+        <h4 class="homepage">
+            Po potwierdzeniu danych rozpocznie się analiza projektu przebiegająca w tle. W zależności od wielkości projektu czas analizy może zająć od kilku minut do kilku godzin.
+        </h4>
+    </div>
+    <div class="col-md-4">
+        <img src="~/images/undraw_data_processing_yrrv.svg" class="img-fluid" alt="Data_processing">
+    </div>
+
+</div>
+<div class="row justify-content-between md-5 py-5">
+    <div class="col-md-4 ">
+        <img src="~/images/undraw_Analytics_re_dkf8.svg" class="img-fluid" alt="Analitics">
+    </div>
+    <div class="col-md-6  align-self-center">
+        <h4 class="homepage">
+            Ostatni krok to sprawdzenie wyników analizy w zakładce
+            <a href="/Result">
+                <b>Wyniki</b>
+            </a>
+        </h4>
+    </div>
 </div>
