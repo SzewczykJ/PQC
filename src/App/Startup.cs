@@ -1,6 +1,8 @@
 using App.Data;
 using App.Data.DataRepository;
 using App.Data.IDataRepository;
+using App.Services;
+using App.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +37,8 @@ namespace App
             services.AddScoped<ILanguageRepo, LanguageRepo>();
             services.AddScoped<IMetricRepo, MetricsRepo>();
             services.AddScoped<IRepositoryRepo, RepositoryRepo>();
+
+            services.AddScoped<IBranchService, BranchService>();
 
             services.AddControllersWithViews();
         }
