@@ -1,4 +1,6 @@
 using App.Data;
+using App.Data.DataRepository;
+using App.Data.IDataRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,16 @@ namespace App
             {
                 options.UseNpgsql(this.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IBranchRepo, BranchRepo>();
+            services.AddScoped<ICommitRepo, CommitRepo>();
+            services.AddScoped<IDeveloperRepo, DeveloperRepo>();
+            services.AddScoped<IFileRepo, FileRepo>();
+            services.AddScoped<IFileDetailRepo, FileDetailRepo>();
+            services.AddScoped<ILanguageRepo, LanguageRepo>();
+            services.AddScoped<IMetricRepo, MetricsRepo>();
+            services.AddScoped<IRepositoryRepo, RepositoryRepo>();
+
             services.AddControllersWithViews();
         }
 
