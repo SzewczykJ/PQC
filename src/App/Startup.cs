@@ -39,6 +39,8 @@ namespace App
             services.AddScoped<IRepositoryRepo, RepositoryRepo>();
 
             services.AddScoped<IBranchService, BranchService>();
+            services.AddScoped<ICommitService, ICommitService>();
+            services.AddScoped<IDeveloperService, IDeveloperService>();
 
             services.AddControllersWithViews();
         }
