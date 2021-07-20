@@ -3,7 +3,6 @@ using System.Linq;
 using App.Data.Entities;
 using App.Data.IDataRepository;
 
-
 namespace App.Data.DataRepository
 {
     public class LanguageRepo : ILanguageRepo

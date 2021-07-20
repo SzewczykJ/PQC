@@ -61,7 +61,7 @@ namespace App.Data.DataRepository
 
         private AverageMetrics CalculateAverageMetrics(List<Metric> metrics)
         {
-            return new AverageMetrics
+            return new()
             {
                 BranchCoverage = metrics.Where(t => t.BranchCoverage.HasValue).Average(t => t.BranchCoverage),
                 CodeSmells = metrics.Where(t => t.CodeSmells.HasValue).Average(t => t.CodeSmells),

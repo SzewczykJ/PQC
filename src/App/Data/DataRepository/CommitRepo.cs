@@ -6,7 +6,6 @@ using App.Data.IDataRepository;
 using App.Models.Result;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace App.Data.DataRepository
 {
     public class CommitRepo : ICommitRepo

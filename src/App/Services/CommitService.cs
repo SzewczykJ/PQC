@@ -5,7 +5,6 @@ using App.Data.IDataRepository;
 using App.Models.Result;
 using App.Services.IServices;
 
-
 namespace App.Services
 {
     public class CommitService : ICommitService
@@ -21,7 +20,7 @@ namespace App.Services
             Repository repository,
             Developer developer)
         {
-            return new Commit
+            return new()
             {
                 //Branch = currentBranch,
                 Message = commit.MessageShort,

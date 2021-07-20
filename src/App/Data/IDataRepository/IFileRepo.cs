@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using File = App.Data.Entities.File;
+using App.Data.Entities;
 
 namespace App.Data.IDataRepository
 {

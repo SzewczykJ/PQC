@@ -2,7 +2,6 @@
 using App.Data.Entities;
 using App.Models.Result;
 
-
 namespace App.Data.IDataRepository
 {
     public interface IMetricRepo

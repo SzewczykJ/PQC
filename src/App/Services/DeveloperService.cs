@@ -1,7 +1,6 @@
 ﻿using App.Data.Entities;
 using App.Data.IDataRepository;
 using App.Services.IServices;
-
 using Commit = LibGit2Sharp.Commit;
 
 namespace App.Services

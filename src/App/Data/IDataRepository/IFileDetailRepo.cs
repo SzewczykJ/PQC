@@ -1,6 +1,5 @@
 ﻿using App.Data.Entities;
 
-
 namespace App.Data.IDataRepository
 {
     public interface IFileDetailRepo

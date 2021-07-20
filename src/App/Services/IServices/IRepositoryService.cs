@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using App.Models;
 using LibGit2Sharp;
 using Repository = App.Data.Entities.Repository;
-using App.Models;
 
 namespace App.Services.IServices
 {

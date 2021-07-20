@@ -12,7 +12,6 @@ namespace App.Services
 {
     public class RepositoryService : IRepositoryService
     {
-
         private readonly IRepositoryRepo repositoryRepo;
 
         public RepositoryService(IRepositoryRepo repositoryRepo)

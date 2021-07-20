@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Data.Entities;
 using App.Data.IDataRepository;
 using Microsoft.EntityFrameworkCore;
-using File = App.Data.Entities.File;
 
 namespace App.Data.DataRepository
 {
@@ -57,6 +57,5 @@ namespace App.Data.DataRepository
 
             return await result.ToListAsync();
         }
-
     }
 }

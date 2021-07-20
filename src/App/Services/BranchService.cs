@@ -4,7 +4,6 @@ using App.Data.Entities;
 using App.Data.IDataRepository;
 using App.Services.IServices;
 
-
 namespace App.Services
 {
     public class BranchService : IBranchService
