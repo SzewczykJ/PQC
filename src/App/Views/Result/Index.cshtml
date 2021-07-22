@@ -1,0 +1,109 @@
+﻿@model App.Models.Result.ListRepositories;
+@{
+    ViewData["Title"] = "Result";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-8" id="repositorybranchesform">
+        <div class="row align-items-center">
+            <div class="col-md-6 pb-1">
+                @Html.DropDownListFor(x => Model.Repositories, new SelectList(Model.Repositories, "RepositoryId",
+                    "Name"), "Wybierz projekt", new {@class = "form-control", id = "repository", required = true, autocomplete = "off"})
+                @Html.ValidationMessageFor(x => x.Repositories, "", new {@class = "text-danger"})
+            </div>
+            <div class="col-md-6 pb-1">
+                @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Wybierz gałąź", new
+                {
+                    @class =
+                        "form-control",
+                    id = "branches", required = true
+                })
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm pb-1">
+                <button type="button" id="submitbutton" name="repository_confirm" class="btn btn-secondary w-100"
+                        disabled>
+                    Pobierz wyniki
+                </button>
+            </div>
+            <div class="col-sm pb-1">
+                <button type="button" id="update" name="update" class="btn btn-secondary w-100" disabled>
+                    Uaktualnij
+                    analizę
+                </button>
+            </div>
+            <div class="col-sm pb-1  align-self-center">
+                <button type="button" id="details" class="btn btn-primary w-100" data-toggle="button"
+                        aria-pressed="false"
+                        autocomplete="off">
+                    Szczegółowy widok
+                </button>
+            </div>
+
+        </div>
+        <div class="row col-12 m-0 mt-2 p-0">
+            <div class="alert alert-info d-none col-12" role="alert" id="analysisRequestAlert">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="graphs">
+    <div class="row justify-content-center my-5" id="chartImage">
+        <div class="col-md-8 mt-5 img-fluid ">
+            <img src="~/images/undraw_Charts_re_5qe9.svg" class="w-100" alt="chart">
+        </div>
+    </div>
+    <div class="row justify-content-center my-5" style="display: none" id="chartImageError">
+        <div class="col-md-8 mt-2 text-center">
+            <h3 class="display-6" style="color:#6f42c1;font-weight: 700; ">
+                We couldn't match any metric to this project.<br>
+                Please try to rescan project.
+            </h3>
+        </div>
+        <div class="col-md-8 mt-5 text-center ">
+            <img src="~/images/undraw_data_report_bi6l.svg" class="w-100 img-fluid mx-auto" height="auto" alt="dataError">
+        </div>
+    </div>
+
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+
+@section Scripts{
+    <script src="~/js/jquery.scrollsync.js"></script>
+    <script src="~/js/site.js"></script>
+    <script >
+     $('#repository').on('change',function () {
+         $('#branches').empty();
+         if ($('#repository').val() == false) return;
+
+
+          $.ajax({
+             method: "GET",
+             url: '/repository/getrepositorybranches',
+             data:{
+                 repositoryId: this.value
+             },
+
+             success: function (data) {
+
+                 $.each(data, function (i,item) {
+                   $('#branches').append($('<option>', {
+                      value:item.BranchId,
+                      text :item.Name
+                   }));
+                });
+              }
+          });
+
+
+
+
+
+        });
+    </script>
+}

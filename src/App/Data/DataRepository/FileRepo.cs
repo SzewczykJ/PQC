@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using App.Data.Entities;
 using App.Data.IDataRepository;
+using App.Models;
 using Microsoft.EntityFrameworkCore;
+using File = App.Data.Entities.File;
 
 namespace App.Data.DataRepository
 {
@@ -56,6 +57,25 @@ namespace App.Data.DataRepository
             }
 
             return await result.ToListAsync();
+        }
+        public async Task<IEnumerable<FileDetailsDtos>> GetListOfFilesWithDetails(int commitId)
+        {
+            var result = this.context.Files
+                .Where(c => c.Commit.CommitId.Equals(commitId))
+                .Select(file => new FileDetailsDtos
+                {
+                    FileId = file.FileId,
+                    Status = file.Status,
+                    Name = file.FileDetail.Name,
+                    SHA = file.SHA,
+                    Extension = file.FileDetail.Extension,
+                    Language = file.FileDetail.Language.Name,
+                    FullPath = file.FileDetail.FullPath,
+                    Metric = file.Metric
+                })
+                .OrderBy(f => f.FullPath)
+                .ToListAsync();
+            return await result;
         }
     }
 }

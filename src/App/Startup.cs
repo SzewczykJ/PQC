@@ -49,6 +49,7 @@ namespace App
             services.AddScoped<ISonarQubeClient, SonarQubeClient>();
             services.AddScoped<ISonarQubeScanner, SonarQubeScanner>();
             services.AddScoped<ISonarQubeService, SonarQubeService>();
+            services.AddScoped<IResultService, ResultService>();
 
             services.AddControllersWithViews();
         }

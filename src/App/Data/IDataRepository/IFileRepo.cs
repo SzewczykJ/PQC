@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using App.Data.Entities;
+using App.Models;
+using File = App.Data.Entities.File;
 
 namespace App.Data.IDataRepository
 {
@@ -11,5 +12,6 @@ namespace App.Data.IDataRepository
         int Update(File file);
         int Delete(File file);
         Task<List<File>> GetListAsync(int? repositoryId = null);
+        Task<IEnumerable<FileDetailsDtos>> GetListOfFilesWithDetails(int commitId);
     }
 }
