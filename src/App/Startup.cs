@@ -1,3 +1,4 @@
+using System;
 using App.Data;
 using App.Data.DataRepository;
 using App.Data.IDataRepository;
@@ -28,6 +29,9 @@ namespace App
             {
                 options.UseNpgsql(this.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddHttpClient<ISonarQubeClient, SonarQubeClient>(client =>
+                client.BaseAddress = new Uri(this.Configuration["SonarQubeUrl"]));
 
             services.AddScoped<IBranchRepo, BranchRepo>();
             services.AddScoped<ICommitRepo, CommitRepo>();
