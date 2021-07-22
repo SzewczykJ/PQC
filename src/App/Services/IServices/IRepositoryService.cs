@@ -11,7 +11,7 @@ namespace App.Services.IServices
         int Update(Repository repository);
         int Delete(Repository repository);
         int Add(Repository repository);
-
+        Repository Create(RepositoryForm repositoryForm);
         Repository GetById(long repositoryId);
         Task<List<Repository>> GetAllAsync();
         IRepository CloneRepository(string repositoryUrl, string branch = null);

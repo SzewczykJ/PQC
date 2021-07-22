@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Analyze the project";
+}
+
+@model RepositoryForm
+
+<link src="~/lib/sweetalert2-10.13/dist/sweetalert2.css" rel="stylesheet"/>
+<div>
+    <form id="form" method="post" autocomplete="off">
+        <div class="form-group">
+            <label for="name">Analiza istniejącego projektu</label>
+            <select name="repository" id="repository" class="form-control">
+                <option value="default" selected>Wybierz istniejący projekt</option>"
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="link">Link do projektu</label>
+            <input type="url" class="form-control" id="link" name="url" placeholder="Link do repozytorium" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" required aria-required="true"/>
+        </div>
+        <div class="form-group">
+            <label for="name">Nazwa projektu</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nazwa projektu" required/>
+        </div>
+        <div class="form-group">
+            <label for="name">Gałąź repozytorium</label>
+            <select name="branch" id="branch" class="form-control" disabled>
+                <option hidden selected></option>"
+            </select>
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary">Analizuj</button>
+    </form>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+
+@section Scripts {
+    <script src="~/js/analysisScript.js"></script>
+    <script src="~/lib/sweetalert2-10.13.0/dist/sweetalert2.all.min.js"></script>
+
+}

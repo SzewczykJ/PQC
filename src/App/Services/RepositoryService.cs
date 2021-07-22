@@ -34,6 +34,25 @@ namespace App.Services
             return this.repositoryRepo.Add(repository);
         }
 
+        public Repository Create(RepositoryForm repositoryForm)
+        {
+            if (repositoryForm == null)
+            {
+                return null;
+            }
+
+            var repository = new Repository
+            {
+                Name = repositoryForm.Name,
+                Url = repositoryForm.Url,
+                FullName = this.GetRepositoryNameFromRepositoryUrl(repositoryForm.Url)
+            };
+
+            this.Add(repository);
+
+            return repository;
+        }
+
         public Repository GetById(long repositoryId)
         {
             return this.repositoryRepo.GetById(repositoryId);

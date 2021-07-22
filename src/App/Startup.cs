@@ -42,6 +42,9 @@ namespace App
             services.AddScoped<ICommitService, CommitService>();
             services.AddScoped<IDeveloperService, DeveloperService>();
             services.AddScoped<IRepositoryService, RepositoryService>();
+            services.AddScoped<ISonarQubeClient, SonarQubeClient>();
+            services.AddScoped<ISonarQubeScanner, SonarQubeScanner>();
+            services.AddScoped<ISonarQubeService, SonarQubeService>();
 
             services.AddControllersWithViews();
         }
