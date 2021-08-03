@@ -42,7 +42,7 @@ namespace App.Services
             this.commitService = commitService;
             this.developerService = developerService;
             this.branchService = branchService;
-            this.SONAR_URL = configuration["SonarQubeUrl"];
+            this.SONAR_URL = configuration["SonarQube:Url"];
             this.logger = loggerFactory.CreateLogger("MySpecialLogger");
             ;
         }

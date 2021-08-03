@@ -30,8 +30,7 @@ namespace App
                 options.UseNpgsql(this.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddHttpClient<ISonarQubeClient, SonarQubeClient>(client =>
-                client.BaseAddress = new Uri(this.Configuration["SonarQubeUrl"]));
+            services.AddHttpClient<ISonarQubeClient, SonarQubeClient>();
 
             services.AddScoped<IBranchRepo, BranchRepo>();
             services.AddScoped<ICommitRepo, CommitRepo>();
@@ -51,7 +50,10 @@ namespace App
             services.AddScoped<ISonarQubeService, SonarQubeService>();
             services.AddScoped<IResultService, ResultService>();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

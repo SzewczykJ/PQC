@@ -32,10 +32,10 @@ namespace App.Services
         {
             this.httpClient = httpClient;
 
-            var login = configuration["SonarQubeCredentials:Login"];
-            var password = configuration["SonarQubeCredentials:Password"];
+            var login = configuration["SonarQube:Login"];
+            var password = configuration["SonarQube:Password"];
             this.credentials = Encoding.ASCII.GetBytes(login + ":" + password);
-
+            this.httpClient.BaseAddress = new Uri(configuration["SonarQube:Api"]);
             this.httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Basic", Convert.ToBase64String(this.credentials));
         }
@@ -54,8 +54,7 @@ namespace App.Services
 
         public async Task<Project> CreateProject(string projectName)
         {
-            var parameters =
-                new Dictionary<string, string> {{"name", projectName}, {"project", projectName}};
+            var parameters = new Dictionary<string, string> {["name"] = projectName, ["project"] = projectName};
 
             var httpResponseMessage =
                 await this.httpClient.PostAsync("projects/create",
@@ -68,7 +67,9 @@ namespace App.Services
 
             var tmp = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            return JsonSerializer.Deserialize<SonarQubeProject>(tmp).Project;
+            return JsonSerializer
+                .Deserialize<SonarQubeProject>(tmp, new JsonSerializerOptions {PropertyNameCaseInsensitive = true})
+                .Project;
         }
 
         public async Task<HttpStatusCode> DeleteProject(string projectName)
@@ -96,12 +97,11 @@ namespace App.Services
                 httpResponseMessage =
                     await this.httpClient.PostAsync("user_tokens/generate",
                         new FormUrlEncodedContent(parameters));
-                return JsonSerializer.Deserialize<ProjectToken>(await httpResponseMessage.Content
-                    .ReadAsStringAsync());
             }
 
-            return JsonSerializer.Deserialize<ProjectToken>(
-                await httpResponseMessage.Content.ReadAsStringAsync());
+            var response = await httpResponseMessage.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<ProjectToken>(response,
+                new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
         }
 
         public async Task<HttpStatusCode> RevokeToken(string tokenName)
