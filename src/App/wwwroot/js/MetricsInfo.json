@@ -1,0 +1,143 @@
+﻿{
+  "Complexity": {
+    "name": "Complexity",
+    "displayName": "Złożoność cyklomatyczna",
+    "description": "<p>Złożoność cyklomatyczna jest to liczba ścieżek przechodzących przez kod. Ilekroć przepływ sterowania funkcji się rozdziela, licznik złożoności jest zwiększany o jeden. Każda funkcja ma minimalną złożoność równą 1. Wraz z wzrostem wartości metryki, wzrasta podatność systemu na wystąpienie awarii jak również ilość niezbędnych testów oprogramowania. </p><p><i>Rekomendowana wartość mieści sie w przedziale od 0 do 10.</i></p>",
+    "graphCanvas": null,
+    "suggestedMin": 30,
+    "valueLevel": [
+      0,
+      10,
+      15,
+      25,
+      1
+    ],
+    "colors": [
+      "#73a942",
+      "#73a942",
+      "#73a942",
+      "#f6aa1c",
+      "#941b0c"
+    ],
+    "alertValue": 10,
+    "errorValue": 15
+  },
+  "CognitiveComplexity": {
+    "name": "CognitiveComplexity",
+    "displayName": "Złożoność poznawcza",
+    "description": "<p>Złożoność poznawcza jest to metryka opisująca poziom trudności zrozumienia badanego kodu źródłowego. Wykorzystywana jest w celu określenia czytelności kodu.</p><p><i> Rekomendowana wartość mieści sie w przedziale od 1 do 10. </i></p> ",
+    "graphCanvas": null,
+    "suggestedMin": 30,
+    "valueLevel": [
+      0,
+      10,
+      15,
+      25,
+      1
+    ],
+    "colors": [
+      "#73a942",
+      "#73a942",
+      "#73a942",
+      "#f6aa1c",
+      "#941b0c"
+    ],
+    "alertValue": 10,
+    "errorValue": 15
+  },
+  "DuplicatedLines": {
+    "name": "DuplicatedLines",
+    "displayName": "Powielone linie",
+    "description": "<p>Powielone linie to metryka wskazująca ilość linii będących kopią pewnego fragmentu systemu. Podczas analizy uwzględniane jest podobieństwo leksykalne oraz drzewo składni abstrakcyjnej, będące reprezentacją zachowań w kodzie. Powielony kod świadczy o błędach w strukturze projektu, jednocześnie zwiększając  podatnoś systemu na awarię.</p><p><i> Rekomendowana wartość to 0. </i></p>",
+    "graphCanvas": null,
+    "suggestedMin": 20,
+    "valueLevel": [
+      0,
+      10,
+      1
+    ],
+    "colors": [
+      "#f6aa1c",
+      "#941b0c",
+      "#941b0c"
+    ],
+    "alertValue": 3,
+    "errorValue": 5
+  },
+  "CodeSmells": {
+    "name": "CodeSmells",
+    "displayName": "Zapach kodu",
+    "description": "</p>Zapach kodu to metryka opisująca zgodność kodu z ogólnie przyjętymi normami oraz standardami wytwarzania oprogramowania. Brzydki zapach kodu świadczy o niskiej jakości kodu źródłowego. Pomimo prawidłowego działania systemu, kod niskiej jakości zwiększa dług techniczny narażając dodatkowo oprogramowanie na przyszłe błędy oraz utrudnia utrzymanie oprogramowania. Wartość liczbowa przedstawia całkowitą liczbę błędów generujących brzydki zapach kodu.</p><p><i>Rekomendowana wartość to 0. </i></p>",
+    "graphCanvas": null,
+    "suggestedMin": 20,
+    "valueLevel": [
+      0,
+      5,
+      1
+    ],
+    "colors": [
+      "#f6aa1c",
+      "#941b0c",
+      "#941b0c"
+    ],
+    "alertValue": 1,
+    "errorValue": 5
+  },
+  "CommentLinesDensity": {
+    "name": "CommentLinesDensity",
+    "displayName": "Zagęszczenie linii komentarzy",
+    "description": "<p>Zagęszczenie linii komentarzy to metryka opisująca proporcje w ilości linii zawierających komentarz względem ilości wszystkich linii kodu źródłowego. Wartość 50% oznacza jedną linię komentarza przypadającą na jedną linię kodu źródłowego. Przekroczenie górnego rekomendowanego zakresu wskazuje, iż plik nie jest kodem źródłowym lecz dokumentem.</p> <p><i>Rekomendowana wartość to przedział od 35% do 75%. </i></p>",
+    "graphCanvas": null,
+    "suggestedMin": 100,
+    "valueLevel": [
+      0,
+      15,
+      35,
+      50,
+      75,
+      1
+    ],
+    "colors": [
+      "#f6aa1c",
+      "#f6aa1c",
+      "#73a942",
+      "#73a942",
+      "#f6aa1c",
+      "#941b0c"
+    ]
+  },
+  "Ncloc": {
+    "name": "Ncloc",
+    "displayName": "Liczba fizycznych wierszy",
+    "description": "<p>Liczba fizycznych wierszy reprezentuje ilość wierszy zawierających co najmniej jeden znak, który nie jest ani spacją, ani tabelą, ani częścią komentarza.</p><p><i>Rekomendowana wartość nie powinna przekraczać 400 linii dla pliku. </i></p>",
+    "graphCanvas": null,
+    "suggestedMin": 400,
+    "valueLevel": [
+      0,
+      400,
+      1
+    ],
+    "colors": [
+      "#73a942",
+      "#f6aa1c",
+      "#941b0c"
+    ],
+    "alertValue": 402,
+    "errorValue": 405
+  },
+  "Statements": {
+    "name": "Statements",
+    "displayName": "Ilość instrukcji",
+    "description": "<p>Ilość instrukcji znajdujących się w pliku. Wysoka wartość metryki nie wskazuje na błędy w kodzie źródłowym lecz sugeruje miejsca dla których zalecana jest refaktoryzacja.</p>",
+    "graphCanvas": null,
+    "suggestedMin": 10,
+    "valueLevel": [
+      0,
+      1
+    ],
+    "colors": [
+      "#73a942",
+      "#f6aa1c"
+    ]
+  }
+}

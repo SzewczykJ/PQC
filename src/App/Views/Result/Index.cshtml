@@ -76,21 +76,18 @@
 @section Scripts{
     <script src="~/js/jquery.scrollsync.js"></script>
     <script src="~/js/site.js"></script>
-    <script >
+    <script>
+    $(document).ready(function () {
      $('#repository').on('change',function () {
          $('#branches').empty();
          if ($('#repository').val() == false) return;
-
-
           $.ajax({
              method: "GET",
              url: '/repository/getrepositorybranches',
              data:{
                  repositoryId: this.value
              },
-
              success: function (data) {
-
                  $.each(data, function (i,item) {
                    $('#branches').append($('<option>', {
                       value:item.BranchId,
@@ -99,11 +96,7 @@
                 });
               }
           });
-
-
-
-
-
         });
+     });
     </script>
 }

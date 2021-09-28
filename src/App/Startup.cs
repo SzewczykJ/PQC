@@ -1,4 +1,4 @@
-using System;
+using System.Text.Json;
 using App.Data;
 using App.Data.DataRepository;
 using App.Data.IDataRepository;
@@ -52,7 +52,7 @@ namespace App
 
             services.AddControllersWithViews().AddJsonOptions(options =>
             {
-                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
         }
 

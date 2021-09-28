@@ -3,6 +3,7 @@
     <deployment type="dockerfile">
       <settings>
         <option name="imageTag" value="" />
+        <option name="buildKitEnabled" value="true" />
         <option name="containerName" value="PQC_Develop" />
         <option name="envVars">
           <list>
@@ -32,10 +33,12 @@
             </DockerPortBindingImpl>
           </list>
         </option>
+        <option name="commandLineOptions" value="--network=backend" />
         <option name="sourceFilePath" value="Dockerfile" />
       </settings>
     </deployment>
     <method v="2">
+      <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://localhost:5000" />
       <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://localhost:5000" />
     </method>
   </configuration>

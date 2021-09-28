@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - PQC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/Highcharts-Stock-9.2.2/css/highcharts.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
     <link rel="stylesheet" href="~/css/all.css"/>
 </head>
@@ -58,8 +59,11 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/Highcharts-Stock-9.2.2/highstock.js"></script>
+<script src="~/lib/Highcharts-Stock-9.2.2/modules/exporting.js"></script>
+<script src="~/lib/Highcharts-Stock-9.2.2/modules/annotations.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/site.js"></script>
 @await RenderSectionAsync("Scripts", false)
 </body>
 
